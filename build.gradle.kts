@@ -22,7 +22,7 @@ plugins {
 	id("org.asciidoctor.jvm.convert") version "3.1.0"
 }
 
-group = "tigase.halcyon"
+group = "com.connectycube.tigase.halcyon"
 version = findProperty("halcyonVersion").toString()
 
 repositories {
