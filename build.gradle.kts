@@ -105,6 +105,11 @@ kotlin {
 				implementation(kotlin("test-js"))
 			}
 		}
+		iosX64().compilations["main"].defaultSourceSet {
+			dependencies {
+//				implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0-RC2")
+				}
+		}
 
 	}
 }
