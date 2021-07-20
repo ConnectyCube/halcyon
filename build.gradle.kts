@@ -77,7 +77,7 @@ repositories {
 }
 
 allprojects {
-	group = "tigase.halcyon"
+	group = "com.connectycube.tigase.halcyon"
 	version = findProperty("version").toString()
 
 }

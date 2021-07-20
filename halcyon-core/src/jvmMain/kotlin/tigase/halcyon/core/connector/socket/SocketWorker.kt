@@ -75,8 +75,9 @@ class SocketWorker(s: Socket, private val parser: StreamParser) : Thread() {
 				parser.parse(buffer, 0, len - 1)
 			}
 			if (isActive) {
-				log.warning { "Unexpected stop!" }
-				onError?.invoke(ConnectorException("Unexpected stop!"))
+//				ToDo RP Temp solution while tigase fix issue with disconnect
+//				log.warning { "Unexpected stop!" }
+//				onError?.invoke(ConnectorException("Unexpected stop!"))
 			}
 		} catch (e: Exception) {
 			log.fine { "Exception in worker: isActive=$isActive interrupted=${!interrupted()} socket=${!socket.isClosed}" }
