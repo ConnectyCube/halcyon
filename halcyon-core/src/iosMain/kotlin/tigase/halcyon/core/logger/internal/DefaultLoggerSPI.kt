@@ -21,9 +21,11 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import tigase.halcyon.core.logger.Level
-import tigase.halcyon.core.logger.LoggerSPI
+import tigase.halcyon.core.logger.LoggerInternal
+//import tigase.halcyon.core.logger.LoggerSPI
 
-actual class DefaultLoggerSPI actual constructor(val name: String, val enabled: Boolean) : LoggerSPI {
+actual class DefaultLoggerSPI actual constructor(val name: String, val enabled: Boolean) :
+    LoggerInternal {
 
 	private val e = !name.startsWith("tigase.halcyon.core.xml.parser")
 
