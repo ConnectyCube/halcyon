@@ -86,9 +86,10 @@ class RequestsManager {
 			it.value.creationTimestamp < maxCreationTimestamp
 		}
 			.forEach {
+                val value = it.value
 				requests.remove(it.key)
-				if (!it.value.isCompleted) {
-					execute { it.value.markTimeout() }
+				if (!value.isCompleted) {
+					execute { value.markTimeout() }
 				}
 			}
 	}

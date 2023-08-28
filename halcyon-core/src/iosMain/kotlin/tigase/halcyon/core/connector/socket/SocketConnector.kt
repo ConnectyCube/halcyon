@@ -280,14 +280,16 @@ class SocketConnector(halcyon: Halcyon) : AbstractConnector(halcyon) {
 //		}
 		val domain = (halcyon.config.connection as SocketConnectorConfig).domain
 		resolver = DnsResolver()
-		resolver.resolve(domain) { result ->
-			result.onSuccess { records ->
-				completionHandler(records.first().target, records.first().port.toInt())
-			}
-				.onFailure {
-					completionHandler(domain, config.port)
-				}
-		}
+// ToDo RP issue with dispatch_source_set_event_handler(readSource, block): GC thread (3): EXC_BAD_ACCESS (code=1, address=0x1234567000000010)
+        completionHandler(domain, config.port)
+//		resolver.resolve(domain) { result ->
+//			result.onSuccess { records ->
+//				completionHandler(records.first().target, records.first().port.toInt())
+//			}
+//				.onFailure {
+//					completionHandler(domain, config.port)
+//				}
+//		}
 	}
 
 	private fun onTick() {
