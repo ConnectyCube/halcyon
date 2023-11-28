@@ -178,7 +178,7 @@ class SSLEngine(connector: SocketConnector, domain: String) {
 			val waiting = BIO_ctrl_pending(writeBio).toInt()
 			log.finest("sending ${waiting} bytes..")
 			memScoped {
-				val buffer = allocArray<ByteVar>(2048)
+				val buffer = allocArray<ByteVar>(waiting)
 				n = BIO_read(writeBio, buffer, waiting)
 				if (n > 0) {
 					connector.writeDataToSocket(buffer.readBytes(n))
